@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  resources :posts
 
-#I can't remember if I made this for an extra assignment. May have to delete.
-#  get 'welcome/contact'
+
+  devise_for :users
+
+  resources :topics do
+    resources :posts, except: [:index]
+  end
+
 
   get 'about' => 'welcome#index'
 
   root to:'welcome#index'
-
 
 end
