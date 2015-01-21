@@ -1,14 +1,3 @@
-<!--
-<%= form_for @post do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :body %>
-  <%= f.text_area :body%>
-
-  <%= f.submit "Save" %>
-
-<% end %> -->
 
 <h1>New Post</h>
 
@@ -17,28 +6,12 @@
       <!-- Anything I can put here to make the font smaller? -->
       <p>Guidelines for posts</p>
       <ul>
-        <li>Make sure it rhymes.</li>
-        <li>Don't use the letter "A".</li>
+        <li>Title must have 5 characters.</li>
+        <li>Body has a minimum length of 20 characters.</li>
         <li>The incessant use of hashtags will get you banned.</li>
       </ul>
     </div>
     <div class="col-md-8">
-      <%= form_for [@topic, @post] do |f| %>
-
-        <div class="form-group">
-          <%= f.label :title %>
-          <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :body %>
-          <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body"%>
-        </div>
-
-        <div class="form-group">
-          <%= f.submit "Save", class: 'btn btn-success' %>
-        </div>
-
-      <% end %>
+      <%= render partial: 'form', locals: {topic: @topic, post: @post } %>
     </div>
   </div>

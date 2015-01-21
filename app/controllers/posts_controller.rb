@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     def create
       @topic = Topic.find(params[:topic_id])
       @post = current_user.posts.build(post_params)
-      @posts.topic = @topic
+      @post.topic = @topic
         authorize @post
 
       if @post.save
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @topic = Topic.find(params[:toic_id])
+    @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
       authorize @post
 
