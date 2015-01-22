@@ -16,5 +16,9 @@
 !/log/.keep
 /tmp
 
+#Carrierwave image
+public/uploads
+
+
 # Ignore application configuration
 /config/application.yml
