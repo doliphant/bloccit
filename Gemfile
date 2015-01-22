@@ -66,3 +66,10 @@ end
 gem 'devise'
 gem 'pundit'
 gem 'redcarpet'
+
+#for uploading and handling images
+gem 'carrierwave'
+gem 'mini_magick'
+
+#S3 uploading support
+gem 'fog'
