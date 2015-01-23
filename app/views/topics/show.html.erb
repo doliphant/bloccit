@@ -14,7 +14,7 @@
             <%= link_to (markdown post.title), [@topic, post] %>
             <%= image_tag(post.image.thumb.url) if post.image? %>
           </h4>
-          
+
             <small>
               <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
               submitted <%= time_ago_in_words(post.created_at) %> ago by
@@ -24,6 +24,7 @@
         </div>
       </div>
     <% end %>
+    <%= will_paginate @posts %>
   </div>
   <div class="col-md-4">
     <% if policy(Post.new).create? %>

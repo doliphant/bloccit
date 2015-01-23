@@ -71,5 +71,9 @@ gem 'redcarpet'
 gem 'carrierwave'
 gem 'mini_magick'
 
+#pagination
+gem 'will_paginate', '~> 3.0.5'
+
+
 #S3 uploading support
 gem 'fog'
