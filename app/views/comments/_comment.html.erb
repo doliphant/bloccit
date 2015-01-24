@@ -1,0 +1,18 @@
+<!-- for displaying comments within a post -->
+
+
+<% if comments.empty? %>
+  <p> There are currently no comments. </p>
+<% else %>
+  <% comments.each do |comm| %>
+    <div class="row">
+      <p> <%= comm.body %>
+        <small>
+          <i> -<%= comm.user.name %> </i>
+        </small>
+      </p>
+
+    </div>
+  <% end %>
+
+<% end %>

@@ -1,18 +1,28 @@
 
 
 <h1><%= markdown @post.title %></h1>
+<%= link_to "Return to Topic", @post.topic  %>
 
 <div class="row">
   <div class="col-md-8">
+
+    <p><%= markdown @post.body %></p>
+
+    <p><%= image_tag(@post.image.url) if @post.image? %></p>
+
     <small>
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by
       <%= @post.user.name %>
     </small>
-    <p><%= markdown @post.body %></p>
 
-    <%= image_tag(@post.image.url) if @post.image? %>
+    <h3> Comments </h3>
+    <!-- comments partial for display goes here -->
+    <%= render partial: 'comments/comment', locals: { comments: @comments} %>
 
+    <% if current_user.present? %>
+      <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @new_comment} %>
+    <% end %>
   </div>
 
   <div class="col-md-4">
