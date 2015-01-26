@@ -14,6 +14,11 @@ group :development do
   gem 'sqlite3'
 end
 
+#respec testing
+group :test do
+  gem 'rspec-rails', '~> 3.1.0'
+end
+
 #bootstrap
 gem 'bootstrap-sass', '~> 3.1.1'
 
