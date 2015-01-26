@@ -2,7 +2,7 @@
 <!-- call by: render partial 'comments/form', locals: {topic: topic, post: post} -->
 <!-- for taking in comments inside of the post#show -->
 
-<%= form_for [topic, post, comment] do |f| %>
+<%= form_for [post, comment] do |f| %>
   <h4> Add Comment</h4>
 
  <!-- this error display block doesn't seem to be working  -->
