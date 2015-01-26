@@ -9,10 +9,9 @@ class Post < ActiveRecord::Base
 
     validates :title, length: {minimum: 5}, presence: true
     validates :body, length: {minimum: 20}, presence: true
-    # validates :topic, presence: true
-    # validates :user, presence: true
+    validates :topic, presence: true
+    validates :user, presence: true
 
-    after_create :create_vote
 
 
     def up_votes
@@ -34,12 +33,8 @@ class Post < ActiveRecord::Base
       update_attribute(:rank, new_rank)
     end
 
-  private
-
-
     def create_vote
       user.votes.create( post: self, value: 1)
-
     end
 
 end
