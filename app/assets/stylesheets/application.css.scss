@@ -1,3 +1,5 @@
+// "bootstrap-sprockets" must be imported before "bottstrap" and "bootstrap/variables"
+// @import "bootstrap-sprockets";
 @import "bootstrap";
 
 //may need to add '@import "app/stylesheets/welcome.scss"'
@@ -9,4 +11,9 @@
 
   .nav {
     margin-top: 5px;
+  }
+
+  .vote-arrows {
+    width: 40px;
+    text-align: center;
   }
