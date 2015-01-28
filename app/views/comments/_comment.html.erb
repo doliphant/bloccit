@@ -1,11 +1,7 @@
 <!-- for displaying comments within a post -->
-<!-- purposely keeping distinct from lesson guidelines to practice html -->
+<!-- purposely keeping distinct from lesson guidelines to practice html and whatever else comes up -->
 
-<% if comments.empty? %>
-  <p> There are currently no comments. </p>
-<% else %>
-  <% comments.each do |comment| %>
-    <!-- <div class="row"> -->
+
     <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
       <p> <%= comment.body %>
         <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %>
@@ -13,11 +9,7 @@
           <i> -<%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago </i>
         </small>
         <% if policy(comment).destroy? %>
-          <%= link_to "Delete", [@post, comment], method: :delete %>
+          <%= link_to "Delete", [comment.post, comment], method: :delete %>
         <% end %>
       </p>
     <% end %>
-    <!-- </div> -->
-  <% end %>
-
-<% end %>

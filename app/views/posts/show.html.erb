@@ -17,8 +17,11 @@
     </small>
 
     <h3> Comments </h3>
-    <!-- comments partial for display goes here -->
-    <%= render partial: 'comments/comment', locals: { comments: @comments} %>
+    <% if @comments.empty? %>
+      <p> Currently no comments for post. </p>
+    <% else %>
+      <%= render @comments %>
+    <% end %>
 
     <% if current_user.present? %>
       <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @new_comment} %>
@@ -42,7 +45,7 @@
       <%= pluralize(@post.down_votes, 'down vote') %>
     </small>
   </div>
-  
+
     <%= render partial: 'favorites/favorite', locals: {post: @post} %>
 
   </div>
