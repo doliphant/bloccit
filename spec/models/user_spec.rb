@@ -17,9 +17,19 @@ describe User do
 
 
     it "returns the appropriate favorite if it exists" do
-      @user.favorites.build(post: @post)
-      expect(@user.favorited(@post)).to eq(@user.favorites.where(post_id: @post.id).first)
-    end
+      post = Post.create(
+        title: 'Post title',
+        body: 'Post bodies must be pretty long.',
+        topic: Topic.create(name: 'Topic name'),
+        user: authenticated_user #new authenticated user
+      )
+      
+      favorite = Favorite.create(
+        post: post,
+        user: @user #current user
+      )
 
+      expect(@user.favorited(post)).to eq(favorite)
+    end
   end
 end
