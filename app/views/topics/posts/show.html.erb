@@ -20,7 +20,7 @@
     <% if @comments.empty? %>
       <p> Currently no comments for post. </p>
     <% else %>
-      <%= render @comments %>
+      <%= render partial: 'comments/comment', collection: @comments %>
     <% end %>
 
     <% if current_user.present? %>
