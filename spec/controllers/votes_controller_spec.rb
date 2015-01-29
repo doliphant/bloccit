@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 include Devise::TestHelpers
-include TestFactories
 
 describe VotesController do
 
   before do
     request.env["HTTP_REFERER"] = '/'
-    @user = authenticated_user
-    @post = associated_post
+    @user = create(:user)
+    @post = create(:post)
     sign_in @user
   end
 
