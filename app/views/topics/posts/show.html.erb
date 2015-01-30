@@ -20,11 +20,15 @@
     <% if @comments.empty? %>
       <p> Currently no comments for post. </p>
     <% else %>
-      <%= render partial: 'comments/comment', collection: @comments %>
+      <div class ='js-comments'>
+        <%= render partial: 'comments/comment', collection: @comments %>
+      </div>
     <% end %>
 
     <% if current_user.present? %>
-      <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @new_comment} %>
+      <div class='new-comment'>
+        <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @new_comment} %>
+      </div>
     <% end %>
   </div>
 
